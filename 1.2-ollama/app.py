@@ -21,7 +21,15 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-## steamlit framework
+## streamlit framework
 st.title("Langchain Demo with Gemma Model")
 input_text = st.text_input('What question you have in mind?')
+
+## Ollama Llama2 model
+llm = Ollama(model='gemma:2b')
+output_parser = StrOutputParser()
+chain = prompt | llm | output_parser
+
+if input_text:
+    st.write(chain.invoke({"question": input_text}))
 

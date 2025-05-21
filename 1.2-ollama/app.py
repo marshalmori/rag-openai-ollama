@@ -12,3 +12,16 @@ load_dotenv()
 os.environ['LANGCHAIN_API_KEY'] = os.getenv('LANGCHAIN_API_KEY')
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
 os.environ['LANGCHAIN_PROJECT'] = os.getenv('LANGCHAIN_PROJECT')
+
+## Prompt Template
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("sytem", "You are a helpful assistant. Please respond to the question asked"),
+        ("user", "Question: {question}")
+    ]
+)
+
+## steamlit framework
+st.title("Langchain Demo with Gemma Model")
+input_text = st.text_input('What question you have in mind?')
+

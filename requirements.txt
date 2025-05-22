@@ -10,3 +10,4 @@ chromadb
 sentence_transformers
 faiss-cpu
 streamlit
+langchain-groq
